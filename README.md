@@ -6,9 +6,8 @@ Part of the continuous delivery module.
 <details>
 <summary>EC2 after installing Apache web server</summary>
 <p>
-
-
-
+  <img src="https://github.com/theJaxon/ansible_labs/blob/master/Lab%201/1.jpg">
+  <img src="https://github.com/theJaxon/ansible_labs/blob/master/Lab%201/2.jpg">
 </p>
 </details>  
 
@@ -43,8 +42,8 @@ Part of the continuous delivery module.
 <details>
 <summary>go-cd server running and nexus failing to start</summary>
 <p>
-
-
+  <img src="https://github.com/theJaxon/ansible_labs/blob/master/Lab%202/Previews/go-server.jpg">
+  <img src="https://github.com/theJaxon/ansible_labs/blob/master/Lab%202/Previews/Nexus.jpg">
 </p>
 </details>  
 
