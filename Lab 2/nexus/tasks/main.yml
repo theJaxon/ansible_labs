@@ -1,0 +1,59 @@
+---
+# tasks file for nexus
+- name: install OpenJDK 1.8 
+  package:
+    name: java-1.8.0-openjdk.x86_64
+    state: present
+
+- name: creating app directory
+  file:
+    path: /app
+    state: directory 
+
+- name: download the latest nexus 
+  get_url:
+    url: https://download.sonatype.com/nexus/3/latest-unix.tar.gz
+    dest: /app/
+
+- name: extract downloaded archive to the current directory 
+  unarchive: 
+    src: /app/nexus-3.22.0-02-unix.tar.gz
+    dest: /app/
+    remote_src: yes
+
+- name: remove the downloaded archive file 
+  shell: >
+    rm -rf /app/*.gz
+
+- name: rename the extracted file to 'nexus'
+  shell: >
+    mv /app/nexus-3* /app/nexus
+
+- name: add nexus user 
+  user: 
+    name: nexus 
+    comment: Nexus user 
+
+- name: change ownership of /app/nexus and /app/sonatype-network to the nexus user 
+  file:
+    path: "{{ item }}"
+    owner: nexus 
+  loop:
+    - /app/nexus 
+    - /app/sonatype-work 
+
+- name: copy nexus.service file to /etc/systemd/system/
+  copy:
+    src: nexus.service 
+    dest: /etc/systemd/system/
+
+- name: start the nexus service 
+  service: 
+    name: nexus 
+    state: started 
+
+- name: allow nexus on boot
+  systemd:
+    name: nexus 
+    enabled: yes
+

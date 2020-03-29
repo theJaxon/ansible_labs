@@ -1,0 +1,18 @@
+---
+- hosts: EC
+    remote_user: ec2-user
+    become: true
+    tasks:
+    - name: install apache
+    package:
+        name: httpd
+        state: present
+    - name: start apache web server
+    service:
+        name: httpd
+        state: started
+    - name: write to the web page
+    copy:
+        src: index.html
+        dest: /var/www/html/
+    

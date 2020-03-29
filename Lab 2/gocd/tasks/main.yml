@@ -1,0 +1,27 @@
+---
+# tasks file for gocd
+- name: Download the .repo file for gocd and save it to /etc/yum/repos.d/
+  get_url: 
+    url: https://download.gocd.org/gocd.repo
+    dest: /etc/yum.repos.d/gocd.repo
+
+- name: Install gocd server 
+  package:
+    name: go-server
+    state: present
+
+- name: start gocd server 
+  service:
+    name: go-server 
+    state: started
+
+- name: install gocd agent
+  package:
+    name: go-agent 
+    state: present 
+
+- name: start gocd agent 
+  service: 
+    name: go-agent
+    state: started 
+
