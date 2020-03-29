@@ -1,6 +1,8 @@
 # ansible_labs
 Part of the continuous delivery module.
 
+[![forthebadge](https://forthebadge.com/images/badges/60-percent-of-the-time-works-every-time.svg)](https://forthebadge.com)
+
 ### Lab 1:
 #### Screens:
 <details>
@@ -36,6 +38,9 @@ Part of the continuous delivery module.
       src: index.html
       dest: /var/www/html/
 ```
+
+___
+
 
 ### Lab 2:
 #### Screens:
